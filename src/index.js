@@ -6,9 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { shoeReducer } from './shoeredux/redux/reducer';
+import { configureStore } from '@reduxjs/toolkit';
+import MovieSlice from './bookTicket/MovieSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let store = createStore(shoeReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let store = configureStore({
+  reducer:{
+    movieSlice : MovieSlice,
+  }
+})
 root.render(
   <Provider store={store}>
     <App />
